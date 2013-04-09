@@ -25,4 +25,18 @@ class DefaultController extends Controller
 
         return array('events' => $events);
     }
+
+    /**
+     * Display next event info.
+     * 
+     * @Template()
+     */
+    public function nextAction()
+    {
+        $repository = $this->getDoctrine()->getRepository('VilniusPHPEventsBundle:Event');
+
+        $event = $repository->findOneBy(array(), array('date' => 'DESC'));
+
+        return array('event' => $event);
+    }
 }

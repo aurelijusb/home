@@ -1,0 +1,24 @@
+<div class="jumbotron">
+    <h1>{{ event.name }}</h1>
+
+    <div class="event-time">
+        <p class="lead">
+            <b>{{ event.date|date('Y-m-d H:i') }}</b> 
+            <br />
+            {% if event.place %}
+                {{ event.place.name }}, {{ event.place.address }} (<a href="{{ event.place.mapUrl }}" target="_blank">žemėlapis</a>)<br />
+            {% else %}
+                Vieta tikslinama
+            {% endif %}
+        </p>
+    </div>
+    <a class="btn btn-large btn-success" href="{{ event.facebookUrl }}">Užsiregistruok į renginį</a>
+    {#
+    {% if event.sponsor.logo %}
+    <div>
+        <br>
+        <a href="{{ event.sponsor.url }}"><img src="media/img/{{ event.sponsor.logo }}" alt="" /></a>
+    </div>
+    {% endif %}
+    #}
+</div>
