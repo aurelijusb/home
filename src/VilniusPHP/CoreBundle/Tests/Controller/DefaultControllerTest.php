@@ -4,14 +4,26 @@ namespace VilniusPHP\CoreBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * @group integration
+ */
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testNextEventOnIndex()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/hello/Fabien');
+        $crawler = $client->request('GET', '/');
 
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        $this->assertEquals(1, $crawler->filter('h1:contains("#3 susitikimas")')->count());
+    }
+
+    public function testEventsListOnIndex()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/');
+
+        $this->assertEquals(3, $crawler->filter('div.event')->count());
     }
 }
