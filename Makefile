@@ -10,7 +10,7 @@ composer.phar:
 	touch composer.phar
 
 vendor: composer.phar
-	./composer.phar update
+	./composer.phar install
 	touch vendor
 
 migrations: vendor
