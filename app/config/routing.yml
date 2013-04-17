@@ -1,3 +1,8 @@
+vilnius_php_user:
+    resource: "@VilniusPHPUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 vilnius_php_events:
     resource: "@VilniusPHPEventsBundle/Controller/"
     type:     annotation
