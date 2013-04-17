@@ -1,6 +1,8 @@
 Vilniusphp.lt homepage
 ======================
 
+[![Build Status](https://travis-ci.org/vilniusphp/home.png?branch=2.0)](https://travis-ci.org/vilniusphp/home)
+
 * Have an idea for improvement? Feel free to open pull request!;
 * Want to discuss before? Create an Issue!;
 
