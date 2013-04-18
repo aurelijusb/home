@@ -1,1 +1,14 @@
-Hello {{ name }}!
+{% extends '@VilniusPHPCore/layout.html.twig' %}
+
+{% block body %}
+
+    {% for book in books %}
+    <div>
+        <h2>
+            <a href="{{ url('library.book', { id : book.id } ) }}">{{ book.title }}</a>
+        </h2>
+        by {{ book.author }}
+    </div>
+    {% endfor %}
+
+{% endblock %}

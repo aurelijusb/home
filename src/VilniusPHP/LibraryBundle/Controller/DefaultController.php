@@ -9,11 +9,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
+     * @Route("/books", name="library.list")
      * @Template()
      */
-    public function indexAction($name)
+    public function indexAction()
     {
-        return array('name' => $name);
+        $repository = $this->getDoctrine()->getRepository('VilniusPHPLibraryBundle:Book');
+
+        $books = $repository->findBy(array(), array('id' => 'DESC'));
+
+        return array('books' => $books);
+    }
+
+    /**
+     * @Route("/book/{id}", name="library.book")
+     * @Template()
+     */
+    public function bookAction($id)
+    {
+        $repository = $this->getDoctrine()->getRepository('VilniusPHPLibraryBundle:Book');
+
+        $book = $repository->findOneBy(array('id' => $id));
+
+        return array('book' => $book);
     }
 }
