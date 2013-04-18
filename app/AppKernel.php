@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new VilniusPHP\CoreBundle\VilniusPHPCoreBundle(),
             new VilniusPHP\EventsBundle\VilniusPHPEventsBundle(),
             new VilniusPHP\UserBundle\VilniusPHPUserBundle(),
+            new VilniusPHP\LibraryBundle\VilniusPHPLibraryBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
