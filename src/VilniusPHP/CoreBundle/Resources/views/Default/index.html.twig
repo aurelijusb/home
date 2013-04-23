@@ -4,3 +4,7 @@
 {% block body %}
     {{ render(controller('VilniusPHPEventsBundle:Default:index')) }}
 {% endblock %}
+
+{% block jumbotron %}
+    {{ render(controller('VilniusPHPEventsBundle:Default:next')) }}
+{% endblock %}

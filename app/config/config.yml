@@ -64,7 +64,13 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+# FOS UserBundle
 fos_user:
     db_driver     : orm
     firewall_name : main
     user_class    : VilniusPHP\UserBundle\Entity\User
+
+# KNP Markdown parser
+knp_markdown:
+    parser:
+        service: markdown.parser.custom

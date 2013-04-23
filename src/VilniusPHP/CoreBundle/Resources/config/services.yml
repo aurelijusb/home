@@ -1,7 +1,8 @@
 parameters:
-#    vilnius_php_core.example.class: VilniusPHP\CoreBundle\Example
+    core.markdown_config:
+        no_html: true
 
 services:
-#    vilnius_php_core.example:
-#        class: %vilnius_php_core.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    markdown.parser.custom:
+        class: Knp\Bundle\MarkdownBundle\Parser\Preset\Max
+        arguments: ['%core.markdown_config%']

@@ -24,8 +24,7 @@
     <div class="container-narrow">
         {% include '@VilniusPHPCore/topbar.html.twig' %}
 
-        {#% include 'layouts/nextevent.twig' %#}
-        {{ render(controller('VilniusPHPEventsBundle:Default:next')) }}
+        {% block jumbotron %}{% endblock %}
 
         <div class="row-fluid marketing">
 

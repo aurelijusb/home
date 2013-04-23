@@ -3,4 +3,8 @@
 {% block body %}
 <h1>{{ book.title }}</h1>
 by {{ book.author }}
+
+<div>
+    {{ book.description|markdown}}
+</div>
 {% endblock %}
