@@ -1,0 +1,30 @@
+{% extends '@VilniusPHPCore/layout.html.twig' %}
+
+{% block body -%}
+    <h1>Book list</h1>
+
+    {% for entity in entities %}
+    <div>
+        <h2>
+            <a href="{{ path('books_show', { 'id': entity.id }) }}">{{ entity.title }}</a>
+        </h2>
+        by {{ entity.author }}
+        <ul>
+            <li>
+                <a href="{{ path('books_show', { 'id': entity.id }) }}">show</a>
+            </li>
+            <li>
+                <a href="{{ path('books_edit', { 'id': entity.id }) }}">edit</a>
+            </li>
+        </ul>
+    </div>
+    {% endfor %}
+
+    <ul>
+        <li>
+            <a href="{{ path('books_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

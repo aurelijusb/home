@@ -1,0 +1,48 @@
+{% extends '@VilniusPHPCore/layout.html.twig' %}
+
+{% block body -%}
+<h1>{{ entity.title }}</h1>
+<h2>{{ entity.subtitle }}</h2>
+<p>by {{ entity.author }}</p>
+
+<div>
+    {{ entity.description|markdown}}
+</div>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Edition</th>
+            <td>{{ entity.edition }}</td>
+        </tr>
+        <tr>
+            <th>Homepage</th>
+            <td>{{ entity.homepage }}</td>
+        </tr>
+        <tr>
+            <th>Cover</th>
+            <td>{{ entity.cover }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('books') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('books_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('books_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}
