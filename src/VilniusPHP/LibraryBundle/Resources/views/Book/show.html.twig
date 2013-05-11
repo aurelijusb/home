@@ -48,6 +48,7 @@
     </li>
 </ul>
 
+{{ render(controller('VilniusPHPLibraryBundle:Comment:reviews', { 'bookId' : entity.id })) }}
 {{ render(controller('VilniusPHPLibraryBundle:Comment:list', { 'bookId' : entity.id })) }}
 
 {% endblock %}
