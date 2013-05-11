@@ -121,4 +121,14 @@ class Place
     {
         return $this->mapUrl;
     }
+
+    /**
+     * __toString 
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

@@ -120,4 +120,14 @@ class Sponsor
     {
         return $this->events;
     }
+
+    /**
+     * __toString 
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
