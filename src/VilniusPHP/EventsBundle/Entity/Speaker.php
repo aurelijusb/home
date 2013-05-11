@@ -38,7 +38,7 @@ class Speaker
     /**
      * @var string
      *
-     * @ORM\Column(name="linked_in_url", type="string", length=255)
+     * @ORM\Column(name="linked_in_url", type="string", length=255, nullable=true)
      */
     private $linkedInUrl;
 

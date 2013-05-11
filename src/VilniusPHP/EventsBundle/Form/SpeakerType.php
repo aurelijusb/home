@@ -6,30 +6,30 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EventType extends AbstractType
+class SpeakerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('date')
-            ->add('facebookUrl', null, array('label' => 'Facebook URL'))
-            ->add('githubUrl', null, array('label' => 'Github URL'))
-            ->add('sponsors')
-            ->add('place')
-            ->add('afterparty')
+            ->add('topic')
+            ->add('linkedInUrl', null, array(
+                'label' => 'LinkedIn URL',
+                'required' => false
+            ))
+            ->add('event')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'VilniusPHP\EventsBundle\Entity\Event'
+            'data_class' => 'VilniusPHP\EventsBundle\Entity\Speaker'
         ));
     }
 
     public function getName()
     {
-        return 'vilniusphp_eventsbundle_eventtype';
+        return 'vilniusphp_eventsbundle_speakertype';
     }
 }
