@@ -81,9 +81,15 @@ class Book
      */
     private $owners;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="book")
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->owners = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -277,6 +283,31 @@ class Book
     public function addOwner(User $owner)
     {
         $this->owners[] = $owners;
+
+        return $this;
+    }
+
+    /**
+     * Get comments 
+     * 
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add comment
+     * 
+     * @param Comment $comment
+     *
+     * @return Book
+     */
+    public function addComment(Comment $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setBook($this);
 
         return $this;
     }
