@@ -1,0 +1,12 @@
+<h3>Comments</h3>
+
+<div>
+{% for entity in entities %}
+    <span>
+    {{ entity.author }} @ 
+    <a href="#comment-{{ entity.id }}" id="comment-{{ entity.id }}">{{ entity.date|date("Y-m-d H:i") }}</a>
+    </span>
+    {{ entity.content|markdown }}
+{% endfor %}
+</div>
+<hr>

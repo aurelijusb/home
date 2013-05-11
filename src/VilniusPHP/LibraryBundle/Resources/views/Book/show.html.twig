@@ -47,4 +47,7 @@
         </form>
     </li>
 </ul>
+
+{{ render(controller('VilniusPHPLibraryBundle:Comment:list', { 'bookId' : entity.id })) }}
+
 {% endblock %}
