@@ -1,9 +1,9 @@
-{% extends '@VilniusPHPCore/layout.html.twig' %}
+{% extends '@VilniusPHPCore/layout_full.html.twig' %}
 
 {% block body -%}
 <h1>{{ entity.title }}</h1>
 <h2>{{ entity.subtitle }}</h2>
-<p>by {{ entity.author }}</p>
+<p>by <strong>{{ entity.author }}</strong></p>
 
 <div>
     {{ entity.description|markdown}}

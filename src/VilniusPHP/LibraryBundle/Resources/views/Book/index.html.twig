@@ -1,14 +1,15 @@
-{% extends '@VilniusPHPCore/layout.html.twig' %}
+{% extends '@VilniusPHPCore/layout_full.html.twig' %}
 
 {% block body -%}
-    <h1>Book list</h1>
+    <h1>Books list</h1>
 
     {% for entity in entities %}
     <div>
         <h2>
             <a href="{{ path('books_show', { 'id': entity.id }) }}">{{ entity.title }}</a>
         </h2>
-        by {{ entity.author }}
+        by <strong>{{ entity.author }}</strong>
+        {% if is_expr_granted("hasRole('USER_ADMIN')") %}
         <ul>
             <li>
                 <a href="{{ path('books_show', { 'id': entity.id }) }}">show</a>
@@ -17,9 +18,11 @@
                 <a href="{{ path('books_edit', { 'id': entity.id }) }}">edit</a>
             </li>
         </ul>
+        {% endif %}
     </div>
     {% endfor %}
 
+    {% if is_expr_granted("hasRole('USER_ADMIN')") %}
     <ul>
         <li>
             <a href="{{ path('books_new') }}">
@@ -27,4 +30,5 @@
             </a>
         </li>
     </ul>
+    {% endif %}
     {% endblock %}
