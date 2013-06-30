@@ -34,6 +34,7 @@
             Back to the list
         </a>
     </li>
+    {% if is_expr_granted("hasRole('USER_ADMIN')") %}
     <li>
         <a href="{{ path('books_edit', { 'id': entity.id }) }}">
             Edit
@@ -46,6 +47,7 @@
             <button type="submit">Delete</button>
         </form>
     </li>
+    {% endif  %}
 </ul>
 
 {{ render(controller('VilniusPHPLibraryBundle:Comment:reviews', { 'bookId' : entity.id })) }}

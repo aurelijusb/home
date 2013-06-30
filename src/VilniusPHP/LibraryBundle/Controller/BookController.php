@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use VilniusPHP\LibraryBundle\Entity\Book;
 use VilniusPHP\LibraryBundle\Form\BookType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Book controller.
@@ -40,6 +41,7 @@ class BookController extends Controller
      *
      * @Route("/", name="books_create")
      * @Method("POST")
+     * @Secure(roles="ROLE_USER")
      * @Template("VilniusPHPLibraryBundle:Book:new.html.twig")
      */
     public function createAction(Request $request)
@@ -67,6 +69,7 @@ class BookController extends Controller
      *
      * @Route("/new", name="books_new")
      * @Method("GET")
+     * @Secure(roles="ROLE_USER")
      * @Template()
      */
     public function newAction()
@@ -110,6 +113,7 @@ class BookController extends Controller
      *
      * @Route("/{id}/edit", name="books_edit")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function editAction($id)
@@ -137,6 +141,7 @@ class BookController extends Controller
      *
      * @Route("/{id}", name="books_update")
      * @Method("PUT")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template("VilniusPHPLibraryBundle:Book:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -171,6 +176,7 @@ class BookController extends Controller
      * Deletes a Book entity.
      *
      * @Route("/{id}", name="books_delete")
+     * @Secure(roles="ROLE_ADMIN")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

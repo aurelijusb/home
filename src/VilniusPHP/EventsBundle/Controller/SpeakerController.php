@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use VilniusPHP\EventsBundle\Entity\Speaker;
 use VilniusPHP\EventsBundle\Form\SpeakerType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Speaker controller.
@@ -22,6 +23,7 @@ class SpeakerController extends Controller
      *
      * @Route("/", name="speaker")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function indexAction()
@@ -40,6 +42,7 @@ class SpeakerController extends Controller
      *
      * @Route("/", name="speaker_create")
      * @Method("POST")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template("VilniusPHPEventsBundle:Speaker:new.html.twig")
      */
     public function createAction(Request $request)
@@ -67,6 +70,7 @@ class SpeakerController extends Controller
      *
      * @Route("/new", name="speaker_new")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function newAction()
@@ -110,6 +114,7 @@ class SpeakerController extends Controller
      *
      * @Route("/{id}/edit", name="speaker_edit")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function editAction($id)
@@ -137,6 +142,7 @@ class SpeakerController extends Controller
      *
      * @Route("/{id}", name="speaker_update")
      * @Method("PUT")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template("VilniusPHPEventsBundle:Speaker:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -171,6 +177,7 @@ class SpeakerController extends Controller
      * Deletes a Speaker entity.
      *
      * @Route("/{id}", name="speaker_delete")
+     * @Secure(roles="ROLE_ADMIN")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

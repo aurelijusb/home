@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use VilniusPHP\EventsBundle\Entity\Event;
 use VilniusPHP\EventsBundle\Form\EventType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Event controller.
@@ -22,6 +23,7 @@ class EventController extends Controller
      *
      * @Route("/", name="event")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function indexAction()
@@ -40,6 +42,7 @@ class EventController extends Controller
      *
      * @Route("/", name="event_create")
      * @Method("POST")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template("VilniusPHPEventsBundle:Event:new.html.twig")
      */
     public function createAction(Request $request)
@@ -67,6 +70,7 @@ class EventController extends Controller
      *
      * @Route("/new", name="event_new")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function newAction()
@@ -110,6 +114,7 @@ class EventController extends Controller
      *
      * @Route("/{id}/edit", name="event_edit")
      * @Method("GET")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function editAction($id)
@@ -137,6 +142,7 @@ class EventController extends Controller
      *
      * @Route("/{id}", name="event_update")
      * @Method("PUT")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template("VilniusPHPEventsBundle:Event:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -171,6 +177,7 @@ class EventController extends Controller
      * Deletes a Event entity.
      *
      * @Route("/{id}", name="event_delete")
+     * @Secure(roles="ROLE_ADMIN")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
