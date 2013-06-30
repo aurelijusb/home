@@ -55,7 +55,9 @@ class BookController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('books_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('books_show', array(
+                'slug' => $entity->getSlug()
+            )));
         }
 
         return array(
@@ -86,15 +88,15 @@ class BookController extends Controller
     /**
      * Finds and displays a Book entity.
      *
-     * @Route("/{id}", name="books_show")
+     * @Route("/{slug}", name="books_show")
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('VilniusPHPLibraryBundle:Book')->find($id);
+        $entity = $em->getRepository('VilniusPHPLibraryBundle:Book')->findOneBy(array('slug' => $slug));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Book entity.');

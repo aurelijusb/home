@@ -5,6 +5,7 @@ namespace VilniusPHP\LibraryBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use VilniusPHP\UserBundle\Entity\User;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Book
@@ -29,6 +30,12 @@ class Book
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+
+    /**
+     * @ORM\Column(length=255, unique=true)
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $slug;
 
     /**
      * @var string
@@ -310,5 +317,29 @@ class Book
         $comment->setBook($this);
 
         return $this;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Book
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

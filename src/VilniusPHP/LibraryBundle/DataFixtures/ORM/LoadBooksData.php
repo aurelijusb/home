@@ -21,6 +21,7 @@ class LoadEventsData implements FixtureInterface
     {
         $book = new Book;
         $book->setTitle('Distributed Network Data');
+        $book->setSlug('distributed-network-data');
         $book->setSubtitle('From Hardware to Data to Visualization');
         $book->setAuthor('Alasdair Allan & Kipp Bradford');
         $book->setEdition('First Edition');
@@ -40,6 +41,7 @@ class LoadEventsData implements FixtureInterface
     {
         $book = new Book;
         $book->setTitle('Learning PHP Design Patterns');
+        $book->setSlug('learning-php-design-patterns');
         $book->setSubtitle('Object-Oriented Programming for Dynamic Projects');
         $book->setAuthor('William Sanders');
         $book->setEdition('First Edition');

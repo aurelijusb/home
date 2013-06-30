@@ -6,13 +6,13 @@
     {% for entity in entities %}
     <div>
         <h2>
-            <a href="{{ path('books_show', { 'id': entity.id }) }}">{{ entity.title }}</a>
+            <a href="{{ path('books_show', { 'slug': entity.slug }) }}">{{ entity.title }}</a>
         </h2>
         by <strong>{{ entity.author }}</strong>
         {% if is_expr_granted("hasRole('USER_ADMIN')") %}
         <ul>
             <li>
-                <a href="{{ path('books_show', { 'id': entity.id }) }}">show</a>
+                <a href="{{ path('books_show', { 'slug': entity.slug }) }}">show</a>
             </li>
             <li>
                 <a href="{{ path('books_edit', { 'id': entity.id }) }}">edit</a>

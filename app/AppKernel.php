@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new VilniusPHP\CoreBundle\VilniusPHPCoreBundle(),
             new VilniusPHP\EventsBundle\VilniusPHPEventsBundle(),
             new VilniusPHP\UserBundle\VilniusPHPUserBundle(),
